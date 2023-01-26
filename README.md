@@ -18,6 +18,9 @@ all above mentioned features are not implemented yet, those are to be implemente
 #bugs
 -whene application is minimized and maximizied again all drawn shapes disappears.(but if we use undo/redo it comes back)
 
+#GirHub Repo
+-https://github.com/priteshhirpara/JPaint.git
+
 #design patterns 
 1-MouseClickEvenHandler.java uses Singleton Pattern
 2-DrawCommand.java used Streategy Pattern
