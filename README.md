@@ -6,7 +6,6 @@ MS-Paint Like application using JAVA
 -can only draw filled rectangle with default blue color.
 -can undo or redo the drawn rectangles.
 
-
 #missing features/feature yet to be implemented
 -ellipse, triangle shapes can not be drawn yet.
 -outline,shading, primary or secondary color does not work yet.
