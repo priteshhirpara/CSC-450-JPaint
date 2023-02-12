@@ -12,6 +12,9 @@
 - can move any selected shapes and perform undo,redo on these movements.
 - can undo or redo the drawn rectangles.
 
+### **Sprint 3**
+- selected shapes has dashed outline around it (just tried to implement and it worked!)
+
 ## **missing features/feature yet to be implemented**
 - copy/paste, group/ungroup feature does not work yet.
 - delete does not work
