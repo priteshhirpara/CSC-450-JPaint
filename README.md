@@ -16,7 +16,7 @@
 - copy/paste, group/ungroup feature does not work yet.
 - delete does not work
 
-## all above mentioned features are not implemented yet, those are to be implemented in upcoming 3 sprints.
+### all above mentioned features are not implemented yet, those are to be implemented in upcoming 2 sprints.
 
 ## bugs
 - whene application is minimized and maximizied again all drawn shapes disappears.(but if we use undo/redo it comes back)
