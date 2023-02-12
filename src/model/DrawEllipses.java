@@ -10,7 +10,7 @@ import model.interfaces.IUndoable;
 
 import java.awt.*;
 
-public class DrawRectangle implements IShape {
+public class DrawEllipses implements IShape {
     private MousePoint startMousePoint;
     private MousePoint endMousePoint;
     private Color primaryColor;
@@ -22,7 +22,7 @@ public class DrawRectangle implements IShape {
     private int startX;
     private int startY;
 
-    public DrawRectangle(MousePoint startMousePoint, MousePoint endMousePoint, Color primaryColor,Color secondaryColor, String shadeType,
+    public DrawEllipses(MousePoint startMousePoint, MousePoint endMousePoint, Color primaryColor,Color secondaryColor, String shadeType,
             PaintCanvas canvas) {
         this.startMousePoint = startMousePoint;
         this.endMousePoint = endMousePoint;
@@ -40,17 +40,17 @@ public class DrawRectangle implements IShape {
         Graphics2D graphics2d = canvas.getGraphics2D();
         if (shadeType.equalsIgnoreCase("FILLED_IN")) {
             graphics2d.setColor(primaryColor);
-            graphics2d.fillRect(startX, startY, width, height);
+            graphics2d.fillOval(startX, startY, width, height);
         } else if (shadeType.equalsIgnoreCase("OUTLINE")) {
             graphics2d.setStroke(new BasicStroke(4.0f));
             graphics2d.setColor(primaryColor);
-            graphics2d.drawRect(startX, startY, width, height);
+            graphics2d.drawOval(startX, startY, width, height);
         }else if(shadeType.equalsIgnoreCase("OUTLINE_AND_FILLED_IN")){
             graphics2d.setColor(primaryColor);
-            graphics2d.fillRect(startX, startY, width, height);
+            graphics2d.fillOval(startX, startY, width, height);
             graphics2d.setStroke(new BasicStroke(4.0f));
             graphics2d.setColor(secondaryColor);
-            graphics2d.drawRect(startX, startY, width, height); 
+            graphics2d.drawOval(startX, startY, width, height);
         }
     }
 
@@ -117,8 +117,8 @@ public class DrawRectangle implements IShape {
 
     @Override
     public void updatePoints(int xPoint, int yPoint) {
-        startX+=xPoint;
-        startY+=yPoint;
+        startX=startX+xPoint;
+        startY=startY+yPoint;
         
     }
 

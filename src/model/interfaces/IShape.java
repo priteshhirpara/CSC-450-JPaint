@@ -1,8 +1,6 @@
 package model.interfaces;
 
-import java.util.LinkedList;
 
-import model.ShapeColor;
 import view.MousePoint;
 import view.gui.PaintCanvas;
 
@@ -18,5 +16,6 @@ public interface IShape extends IUndoable
     public MousePoint getEndPoint();
     public IShape getIShape();
     public void draw();
+    public void updatePoints(int xPoint,int yPoint);
     
 }

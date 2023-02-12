@@ -3,9 +3,12 @@ package model.persistence;
 import model.ShapeColor;
 import model.ShapeShadingType;
 import model.ShapeType;
+import model.commands.CurrentMouseMode;
 import model.commands.RedoCommand;
 import model.commands.UndoCommand;
 import model.MouseMode;
+import model.SelectedOutline;
+import model.SelectedShapeOutline;
 import model.dialogs.DialogProvider;
 import model.interfaces.IApplicationState;
 import model.interfaces.IDialogProvider;
@@ -80,11 +83,19 @@ public class ApplicationState implements IApplicationState {
     public void undo(){
         UndoCommand undoCommand=new UndoCommand();
         undoCommand.run();
+        if(UndoCommand.isUndoOptionSelected()){
+            SelectedOutline undoOutline=new SelectedOutline(undoCommand);
+            CurrentMouseMode.showOutline(undoOutline);   
+        }
     }
     @Override
     public void redo(){
         RedoCommand redoCommand=new RedoCommand();
         redoCommand.run();
+        if(RedoCommand.isRedoOptionSelected()){
+            SelectedOutline redoOutline=new SelectedOutline(redoCommand);
+            CurrentMouseMode.showOutline(redoOutline);   
+        }
     }
 
     private void setDefaults() {

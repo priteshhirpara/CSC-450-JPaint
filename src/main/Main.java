@@ -26,7 +26,8 @@ public class Main {
         IJPaintController controller = new JPaintController(uiModule, appState);
 
         controller.setup();
-
+        ShapeColor.getMap();
+        
         MouseClickEventHandler clickEventHandler=MouseClickEventHandler.getInstance(paintCanvas, appState);
         paintCanvas.addMouseListener(clickEventHandler);
     }
