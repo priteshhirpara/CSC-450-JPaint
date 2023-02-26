@@ -33,4 +33,6 @@ public interface IApplicationState {
     void copy();
 
     void paste();
+
+    void delete();
 }
