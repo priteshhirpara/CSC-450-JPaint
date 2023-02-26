@@ -29,4 +29,8 @@ public interface IApplicationState {
     void undo();
 
     void redo();
+
+    void copy();
+
+    void paste();
 }

@@ -3,7 +3,9 @@ package model.persistence;
 import model.ShapeColor;
 import model.ShapeShadingType;
 import model.ShapeType;
+import model.commands.CopyCommand;
 import model.commands.CurrentMouseMode;
+import model.commands.PasteCommand;
 import model.commands.RedoCommand;
 import model.commands.UndoCommand;
 import model.MouseMode;
@@ -104,5 +106,15 @@ public class ApplicationState implements IApplicationState {
         activeSecondaryColor = ShapeColor.GREEN;
         activeShapeShadingType = ShapeShadingType.FILLED_IN;
         activeMouseMode = MouseMode.DRAW;
+    }
+
+    @Override
+    public void copy() {
+        new CopyCommand().run();
+    }
+
+    @Override
+    public void paste() {
+        new PasteCommand().run();
     }
 }

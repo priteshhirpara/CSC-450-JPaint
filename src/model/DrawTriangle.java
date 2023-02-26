@@ -142,5 +142,18 @@ public class DrawTriangle implements IShape {
         yPoints[2]=yPoints[2]+yPoint;
         
     }
+    @Override
+    public Color getPrimaryColor() {
+       return primaryColor;
+    }
 
+    @Override
+    public Color getSecondaryColor() {
+       return secondaryColor;
+    }
+
+    @Override
+    public String getShadeType() {
+       return shadeType;
+    }
 }

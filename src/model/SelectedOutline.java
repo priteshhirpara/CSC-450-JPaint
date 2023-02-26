@@ -11,9 +11,6 @@ import model.interfaces.ISelectedShapeOutline;
 public class SelectedOutline implements ISelectedShapeOutline {
     private ICommand command;
     private SelectedShapeOutline selectedShapeOutline;
-    private SelectedShapeOutline movedShapeOutline;
-    private SelectedShapeOutline undoShapeOutline;
-    private SelectedShapeOutline redoShapeOutline;
     private SelectCommand selectCommand=null;
     private MoveCommand moveCommand=null;
     private UndoCommand undoCommand=null;
