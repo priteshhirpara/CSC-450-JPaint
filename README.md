@@ -13,7 +13,7 @@
 - can undo or redo the drawn rectangles.
 
 ### **Sprint 3**
-- selected shapes has dashed outline around it (just tried to implement and it worked!)
+- selected shapes has dashed outline around it
 
 ## **missing features/feature yet to be implemented**
 - copy/paste, group/ungroup feature does not work yet.
