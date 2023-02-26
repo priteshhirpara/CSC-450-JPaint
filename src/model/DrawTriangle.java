@@ -70,18 +70,10 @@ public class DrawTriangle implements IShape {
     }
 
     public int[] getXPoints() {
-        int[] temp = new int[3];
-        for (int i = 0; i < 3; i++) {
-            temp[i]=xPoints[i];
-        }
-        return temp;
+        return xPoints;
     }
     public int[] getYPoints() {
-        int[] temp = new int[3];
-        for (int i = 0; i < 3; i++) {
-            temp[i]=yPoints[i];
-        }
-        return temp;
+        return yPoints;
     }
     @Override
     public int getStartPointX() {

@@ -22,12 +22,13 @@
 ### all above mentioned features are not implemented yet, those are to be implemented in upcoming 2 sprints.
 
 ## bugs
-- whene application is minimized and maximizied again all drawn shapes disappears.(but if we use undo/redo it comes back)
+- when application is minimized and maximizied again all drawn shapes disappears.(but if we use undo/redo it comes back)
 
 ## **GirHub Repo**
 - https://github.com/priteshhirpara/JPaint.git
 
 ## **design patterns**
 1. MouseClickEvenHandler.java uses Singleton Pattern
-2. DrawCommand.java uses Streategy Pattern
-3. Classes ending with Outline uses ProxyPattern
+2. DrawCommand.java uses Command Pattern
+3. DrawRect.java, DrawEllipse.java, DrawTriangle.java uses Strategy Pattern
+4. SelectedOutline.java, SelectedShapeOutline.java uses ProxyPattern
