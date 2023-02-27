@@ -84,7 +84,7 @@ public class MoveCommand implements ICommand,IUndoable,ISelectedShapesList {
             ShapeHistoryList.shapeList.remove(tempShape1);
         }
         for (IShape tempShape1 : moveShapeList) {
-            tempShape1.updatePoints(0-xPoints, 0-yPoints);
+            tempShape1.updatePoints(0+xPoints, 0+yPoints);
             selectedShapes.add(tempShape1);
             ShapeHistoryList.shapeList.add(tempShape1);
         }
