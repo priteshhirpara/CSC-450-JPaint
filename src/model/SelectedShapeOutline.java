@@ -60,30 +60,30 @@ public class SelectedShapeOutline implements ISelectedShapeOutline{
             graphics2d.setStroke(stroke);
             graphics2d.setColor(Color.BLACK);
             
-            
+            int[] newXPoints={0,0,0},newYPoints={0,0,0};
            
     
             if (xPoints[0] < xPoints[2]) {
-                xPoints[0] -= 4;
-                xPoints[1] -= 4;
-                xPoints[2] += 8;
+                newXPoints[0]=xPoints[0] - 4;
+                newXPoints[1]=xPoints[1] - 4;
+                newXPoints[2]=xPoints[2] + 8;
             } else {
-                xPoints[2] -= 8;
-                xPoints[1] += 4;
-                xPoints[0] += 4;
+                newXPoints[0]=xPoints[2] - 8;
+                newXPoints[1]=xPoints[1] + 4;
+                newXPoints[2]=xPoints[0] + 4;
             }
             if (yPoints[0] < yPoints[2]) {
-                yPoints[0] -= 8;
-                 yPoints[1] += 4;
-               yPoints[2] += 4;
+                newYPoints[0]=yPoints[0] - 8;
+                newYPoints[1]=yPoints[1] + 4;
+                newYPoints[2]=yPoints[2] + 4;
             } else {
-                 yPoints[2] -= 4;
-                 yPoints[1] -= 4;
-                 yPoints[0] += 8;
+                newYPoints[0]=yPoints[2] - 4;
+                newYPoints[1]=yPoints[1] - 4;
+                newYPoints[2]=yPoints[0] + 8;
             }
                
            
-            graphics2d.drawPolygon(xPoints,yPoints,3);
+            graphics2d.drawPolygon(newXPoints,newYPoints,3);
         }
     }    
 }
