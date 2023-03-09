@@ -9,6 +9,7 @@ import model.commands.DeleteCommand;
 import model.commands.GroupCommand;
 import model.commands.PasteCommand;
 import model.commands.RedoCommand;
+import model.commands.UnGroupCommand;
 import model.commands.UndoCommand;
 import model.MouseMode;
 import model.SelectedOutline;
@@ -129,6 +130,6 @@ public class ApplicationState implements IApplicationState {
     }
     @Override
     public void ungroup() {
-       // new UnGroupCommand().run();
+        new UnGroupCommand().run();
     }
 }

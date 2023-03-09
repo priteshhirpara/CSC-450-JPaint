@@ -58,6 +58,7 @@ public class SelectCommand implements ICommand,ISelectedShapesList,IGroupedShape
                         }
                     }else{
                         selectedShapes.add(tempShape);
+                        
                     }
                 }
             }     
