@@ -16,7 +16,7 @@ import java.util.List;
 
 public class SelectedShapeOutline implements ISelectedShapeOutline, IGroupedShapeHistory {
     PaintCanvas canvas;
-    boolean isGrouped = false;
+    static boolean isGrouped;
     List<Integer> startX=new ArrayList<>(),startY=new ArrayList<>(),endX=new ArrayList<>(),endY=new ArrayList<>();
     int startPointX,startPointY,width,height;
     List<IShape> remove=new ArrayList<>();

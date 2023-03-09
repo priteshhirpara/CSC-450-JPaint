@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.GroupedShapes;
+import model.SelectedShapeList;
 import model.SelectedShapeOutline;
 import model.interfaces.ICommand;
 import model.interfaces.IGroupedShapeHistory;
@@ -39,7 +40,8 @@ public class GroupCommand implements ICommand, ISelectedShapeCommandHistory, IGr
             groupedShapes.remove(iShape);
         }
         groupedShapesList.remove(groupedShapes);
-
+        SelectedShapeOutline outline=new SelectedShapeOutline();
+        outline.shapeOutline();
     }
 
     @Override
@@ -48,6 +50,8 @@ public class GroupCommand implements ICommand, ISelectedShapeCommandHistory, IGr
             groupedShapes.add(iShape);
         }
         groupedShapesList.add(groupedShapes);
+        SelectedShapeOutline outline=new SelectedShapeOutline();
+                outline.shapeOutline();
     }
 
 }

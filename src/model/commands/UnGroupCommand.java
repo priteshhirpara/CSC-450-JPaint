@@ -33,8 +33,6 @@ public class UnGroupCommand implements ICommand,IGroupedShapeHistory,IUndoable{
         if(found){
         ungrouped.add(gShapes);
         groupedShapesList.remove(gShapes);      
-        SelectedShapeList.selectedShapes.clear();
-        SelectedShapeList.selectedShapes.addAll(gShapes.getList());
         SelectedShapeOutline outline=new SelectedShapeOutline();
         outline.shapeOutline();
         }
@@ -44,12 +42,16 @@ public class UnGroupCommand implements ICommand,IGroupedShapeHistory,IUndoable{
     public void undo() {
         groupedShapesList.add(gShapes);
         ungrouped.remove(gShapes);
+        SelectedShapeOutline outline=new SelectedShapeOutline();
+                outline.shapeOutline();
     }
 
     @Override
     public void redo() {
         ungrouped.add(gShapes);
         groupedShapesList.remove(gShapes);
+        SelectedShapeOutline outline=new SelectedShapeOutline();
+                outline.shapeOutline();
     }
     
 }
