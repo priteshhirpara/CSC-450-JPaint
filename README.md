@@ -20,12 +20,7 @@
 - can und/redo paste command
 - can delete selected shapes
 - can undo/redo delete command
-
-
-## **missing features/feature yet to be implemented**
-- group/ungroup feature does not work yet.
-
-### all above mentioned features are not implemented yet, those are to be implemented in upcoming last sprint.
+- can group/ungroup multiple shapes.
 
 ## bugs
 - when application is minimized and maximizied again all drawn shapes disappears.(but if we use undo/redo it comes back)
@@ -35,6 +30,7 @@
 
 ## **design patterns**
 1. MouseClickEvenHandler.java uses Singleton Pattern
-2. DrawCommand.java,CopyCommand.java,PasteCommand.java,SelectCommand.java,MoveCommand.java,DeleteCommand.java uses Command Pattern
-3. DrawRect.java, DrawEllipse.java, DrawTriangle.java uses Strategy Pattern
+2. CopyCommand.java,PasteCommand.java,SelectCommand.java,MoveCommand.java,DeleteCommand.java uses Command Pattern
+3. DrawCommand.java uses Strategy Pattern
 4. SelectedOutline.java, SelectedShapeOutline.java uses ProxyPattern
+5. GroupedShapes.java uses CompositePattern

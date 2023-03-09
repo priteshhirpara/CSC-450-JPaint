@@ -6,6 +6,7 @@ import model.ShapeType;
 import model.commands.CopyCommand;
 import model.commands.CurrentMouseMode;
 import model.commands.DeleteCommand;
+import model.commands.GroupCommand;
 import model.commands.PasteCommand;
 import model.commands.RedoCommand;
 import model.commands.UndoCommand;
@@ -121,5 +122,13 @@ public class ApplicationState implements IApplicationState {
     @Override
     public void delete() {
         new DeleteCommand().run();
+    }
+    @Override
+    public void group() {
+        new GroupCommand().run();
+    }
+    @Override
+    public void ungroup() {
+       // new UnGroupCommand().run();
     }
 }
