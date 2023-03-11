@@ -39,4 +39,8 @@ public interface IApplicationState {
     void group();
 
     void ungroup();
+
+    void rotate();
+
+    void anim();
 }

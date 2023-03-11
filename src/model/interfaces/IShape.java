@@ -18,6 +18,8 @@ public interface IShape extends IUndoable
     public IShape getIShape();
     public void draw();
     public void updatePoints(int xPoint,int yPoint);
+    public void rotate(double deg);
+    public double getRotate();
     public Color getPrimaryColor();   
     public Color getSecondaryColor();   
     public String getShadeType();

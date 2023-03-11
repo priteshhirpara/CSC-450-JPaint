@@ -47,5 +47,7 @@ public enum EventName {
 	PASTE,
 	DELETE,
 	GROUP,
-	UNGROUP
+	UNGROUP,
+	ROTATE_90Deg,
+	START_STOP_ANIM,
 }

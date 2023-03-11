@@ -27,6 +27,7 @@ public class GroupCommand implements ICommand, ISelectedShapeCommandHistory, IGr
             if (groupedShapes.getList().size() > 0) {
                 groupedShapesList.add(groupedShapes);
                 CommandHistory.add(this);
+                
                 SelectedShapeOutline outline=new SelectedShapeOutline();
                 outline.shapeOutline();
                 

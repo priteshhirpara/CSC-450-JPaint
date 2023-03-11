@@ -9,6 +9,7 @@ import model.interfaces.IShape;
 import model.interfaces.IUndoable;
 
 import java.awt.*;
+import java.awt.geom.AffineTransform;;
 
 public class DrawTriangle implements IShape {
     private MousePoint startMousePoint;
@@ -19,7 +20,8 @@ public class DrawTriangle implements IShape {
     private String shadeType;
     private int[] xPoints = new int[3];
     private int[] yPoints = new int[3];
-
+    private double deg;
+    Graphics2D graphics2d;
     public DrawTriangle(MousePoint startMousePoint, MousePoint endMousePoint, Color primaryColor, Color secondaryColor,
             String shadeType, PaintCanvas canvas) {
         this.startMousePoint = startMousePoint;
@@ -35,27 +37,36 @@ public class DrawTriangle implements IShape {
         yPoints[0] = startMousePoint.getYPoint();
         yPoints[1] = endMousePoint.getYPoint();
         yPoints[2] = endMousePoint.getYPoint();
+
+        deg=Math.toDegrees(0);
     }
 
     public void draw() {
-        Graphics2D graphics2d = canvas.getGraphics2D();
+         graphics2d = canvas.getGraphics2D();
         
         if (shadeType.equalsIgnoreCase("FILLED_IN")) {
             graphics2d.setColor(primaryColor);
+            graphics2d.rotate(deg,(xPoints[0]+xPoints[1]+xPoints[2])/3,(yPoints[0]+yPoints[1]+yPoints[2])/3);
             graphics2d.fillPolygon(xPoints, yPoints, 3);
         } else if (shadeType.equalsIgnoreCase("OUTLINE")) {
             graphics2d.setStroke(new BasicStroke(4.0f));
             graphics2d.setColor(primaryColor);
+            graphics2d.rotate(deg,(xPoints[0]+xPoints[1]+xPoints[2])/3,(yPoints[0]+yPoints[1]+yPoints[2])/3);
             graphics2d.drawPolygon(xPoints, yPoints, 3);
         } else if (shadeType.equalsIgnoreCase("OUTLINE_AND_FILLED_IN")) {
             graphics2d.setColor(primaryColor);
             graphics2d.fillPolygon(xPoints, yPoints, 3);
             graphics2d.setStroke(new BasicStroke(4.0f));
             graphics2d.setColor(secondaryColor);
+            graphics2d.rotate(deg,(xPoints[0]+xPoints[1]+xPoints[2])/3,(yPoints[0]+yPoints[1]+yPoints[2])/3);
             graphics2d.drawPolygon(xPoints, yPoints, 3);
         }
     }
 
+    @Override 
+    public double getRotate(){
+        return deg;
+    }
     @Override
     public void undo() {
         ShapeHistoryList.shapeList.remove(this);
@@ -84,7 +95,10 @@ public class DrawTriangle implements IShape {
             return xPoints[2];
         }
     }
-
+    @Override 
+    public void rotate(double deg){
+        this.deg=deg;
+    }
     @Override
     public int getStartPointY() {
 

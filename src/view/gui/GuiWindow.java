@@ -81,6 +81,7 @@ public class GuiWindow extends JFrame implements IGuiWindow {
 		JPanel panel = new JPanel();
         FlowLayout flowLayout = (FlowLayout) panel.getLayout();
         flowLayout.setAlignment(FlowLayout.LEFT);
+        panel.setLayout(new GridLayout(2,5));
         panel.setBackground(Color.lightGray);
 		return panel;
 	}

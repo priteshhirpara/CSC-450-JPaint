@@ -9,6 +9,7 @@ import model.interfaces.IShape;
 import model.interfaces.IUndoable;
 
 import java.awt.*;
+import java.awt.geom.AffineTransform;
 
 public class DrawEllipses implements IShape {
     private MousePoint startMousePoint;
@@ -21,7 +22,8 @@ public class DrawEllipses implements IShape {
     private int width;
     private int startX;
     private int startY;
-
+    private double deg;
+    Graphics2D graphics2d;
     public DrawEllipses(MousePoint startMousePoint, MousePoint endMousePoint, Color primaryColor,Color secondaryColor, String shadeType,
             PaintCanvas canvas) {
         this.startMousePoint = startMousePoint;
@@ -34,24 +36,38 @@ public class DrawEllipses implements IShape {
         startY = Math.min(startMousePoint.getYPoint(), endMousePoint.getYPoint());
         width = Math.abs(startMousePoint.getXPoint() - endMousePoint.getXPoint());
         height = Math.abs(startMousePoint.getYPoint() - endMousePoint.getYPoint());
+        deg=Math.toDegrees(0);
     }
 
     public void draw() {
-        Graphics2D graphics2d = canvas.getGraphics2D();
+        graphics2d = canvas.getGraphics2D();
         if (shadeType.equalsIgnoreCase("FILLED_IN")) {
             graphics2d.setColor(primaryColor);
+            AffineTransform transform=new AffineTransform();
+            transform.rotate(deg, startX + width / 2, startY + height / 2);
+            graphics2d.transform(transform);
             graphics2d.fillOval(startX, startY, width, height);
         } else if (shadeType.equalsIgnoreCase("OUTLINE")) {
             graphics2d.setStroke(new BasicStroke(4.0f));
             graphics2d.setColor(primaryColor);
+            AffineTransform transform=new AffineTransform();
+            transform.rotate(deg, startX + width / 2, startY + height / 2);
+            graphics2d.transform(transform);
             graphics2d.drawOval(startX, startY, width, height);
         }else if(shadeType.equalsIgnoreCase("OUTLINE_AND_FILLED_IN")){
             graphics2d.setColor(primaryColor);
             graphics2d.fillOval(startX, startY, width, height);
             graphics2d.setStroke(new BasicStroke(4.0f));
             graphics2d.setColor(secondaryColor);
+            AffineTransform transform=new AffineTransform();
+            transform.rotate(deg, startX + width / 2, startY + height / 2);
+            graphics2d.transform(transform);
             graphics2d.drawOval(startX, startY, width, height);
         }
+    }
+    @Override 
+    public double getRotate(){
+        return deg;
     }
 
     @Override
@@ -129,6 +145,12 @@ public class DrawEllipses implements IShape {
     @Override
     public Color getSecondaryColor() {
        return secondaryColor;
+    }
+
+    @Override 
+    public void rotate(double deg){
+        
+        this.deg=deg;
     }
 
     @Override

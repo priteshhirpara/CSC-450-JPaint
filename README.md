@@ -20,10 +20,19 @@
 - can und/redo paste command
 - can delete selected shapes
 - can undo/redo delete command
+
+### **Spring 4**
 - can group/ungroup multiple shapes.
 
+### **Extra Credit**
+- select shape(s) and click on rotate_90deg to rotate any single/multiple shape(s)
+- select shape(s) and click on stat_stop_anim to start animation on selected shape(s)
+
+
 ## bugs
-- when application is minimized and maximizied again all drawn shapes disappears.(but if we use undo/redo it comes back)
+- when application is minimized and maximized again all drawn shapes disappears.(but if we use undo/redo it comes back)
+- group outline is not properly rotated/re-drawn based on rotation
+- some ellipses makes group outline bigger than expected
 
 ## **GirHub Repo**
 - https://github.com/priteshhirpara/JPaint.git

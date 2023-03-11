@@ -3,12 +3,14 @@ package model.persistence;
 import model.ShapeColor;
 import model.ShapeShadingType;
 import model.ShapeType;
+import model.commands.AnimationCommand;
 import model.commands.CopyCommand;
 import model.commands.CurrentMouseMode;
 import model.commands.DeleteCommand;
 import model.commands.GroupCommand;
 import model.commands.PasteCommand;
 import model.commands.RedoCommand;
+import model.commands.RotateCommand;
 import model.commands.UnGroupCommand;
 import model.commands.UndoCommand;
 import model.MouseMode;
@@ -132,4 +134,13 @@ public class ApplicationState implements IApplicationState {
     public void ungroup() {
         new UnGroupCommand().run();
     }
+    @Override
+    public void rotate(){
+        new RotateCommand().run();
+    }
+    @Override
+    public void anim(){
+        new AnimationCommand().run();
+    }
+   
 }

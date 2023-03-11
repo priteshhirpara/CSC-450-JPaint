@@ -34,5 +34,7 @@ public class JPaintController implements IJPaintController {
         uiModule.addEvent(EventName.DELETE, () -> applicationState.delete());
         uiModule.addEvent(EventName.GROUP, () -> applicationState.group());
         uiModule.addEvent(EventName.UNGROUP, () -> applicationState.ungroup());
+        uiModule.addEvent(EventName.ROTATE_90Deg, () -> applicationState.rotate());
+        uiModule.addEvent(EventName.START_STOP_ANIM, () -> applicationState.anim());
     }
 }

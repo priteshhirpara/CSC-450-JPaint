@@ -9,7 +9,7 @@ import model.interfaces.IShape;
 import model.interfaces.IUndoable;
 
 import java.awt.*;
-
+import java.awt.geom.AffineTransform;
 public class DrawRectangle implements IShape {
     private MousePoint startMousePoint;
     private MousePoint endMousePoint;
@@ -21,7 +21,8 @@ public class DrawRectangle implements IShape {
     private int width;
     private int startX;
     private int startY;
-
+    private double deg;
+    Graphics2D graphics2d;
     public DrawRectangle(MousePoint startMousePoint, MousePoint endMousePoint, Color primaryColor,Color secondaryColor, String shadeType,
             PaintCanvas canvas) {
         this.startMousePoint = startMousePoint;
@@ -34,22 +35,32 @@ public class DrawRectangle implements IShape {
         startY = Math.min(startMousePoint.getYPoint(), endMousePoint.getYPoint());
         width = Math.abs(startMousePoint.getXPoint() - endMousePoint.getXPoint());
         height = Math.abs(startMousePoint.getYPoint() - endMousePoint.getYPoint());
+        deg=Math.toDegrees(0);
     }
 
     public void draw() {
-        Graphics2D graphics2d = canvas.getGraphics2D();
+        graphics2d = canvas.getGraphics2D();
         if (shadeType.equalsIgnoreCase("FILLED_IN")) {
             graphics2d.setColor(primaryColor);
+            AffineTransform transform=new AffineTransform();
+            transform.rotate(deg, startX + width / 2, startY + height / 2);
+            graphics2d.transform(transform);
             graphics2d.fillRect(startX, startY, width, height);
         } else if (shadeType.equalsIgnoreCase("OUTLINE")) {
             graphics2d.setStroke(new BasicStroke(4.0f));
             graphics2d.setColor(primaryColor);
+            AffineTransform transform=new AffineTransform();
+            transform.rotate(deg, startX + width / 2, startY + height / 2);
+            graphics2d.transform(transform);
             graphics2d.drawRect(startX, startY, width, height);
         }else if(shadeType.equalsIgnoreCase("OUTLINE_AND_FILLED_IN")){
             graphics2d.setColor(primaryColor);
             graphics2d.fillRect(startX, startY, width, height);
             graphics2d.setStroke(new BasicStroke(4.0f));
             graphics2d.setColor(secondaryColor);
+            AffineTransform transform=new AffineTransform();
+            transform.rotate(deg, startX + width / 2, startY + height / 2);
+            graphics2d.transform(transform);
             graphics2d.drawRect(startX, startY, width, height); 
         }
     }
@@ -121,7 +132,15 @@ public class DrawRectangle implements IShape {
         startY+=yPoint;
         
     }
-
+    @Override 
+    public void rotate(double deg){
+        
+        this.deg=deg;
+    }
+    @Override 
+    public double getRotate(){
+        return deg;
+    }
     @Override
     public Color getPrimaryColor() {
        return primaryColor;
